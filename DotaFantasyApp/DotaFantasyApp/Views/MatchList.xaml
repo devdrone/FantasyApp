@@ -5,15 +5,26 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DotaFantasyApp.Views.MatchList">
 
-    <CollectionView ItemsSource="{Binding Matches}">
+    <CollectionView ItemsSource="{Binding Matches}" HeightRequest="50">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame BorderColor="White" Padding="5">
-                <StackLayout HeightRequest="100">
-                    <!--<BoxView HeightRequest="30" BackgroundColor="Red" Margin="0,0,0,-6"/>
-                    <BoxView HeightRequest="100" BackgroundColor="Silver" Margin="0,0,0,5"/>-->
-                        <Label Text="{Binding Name}" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
-                    </StackLayout>
+                <Frame BackgroundColor="LightSteelBlue" Padding="10">
+                    <Grid BackgroundColor="LightGray">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="80*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="{Binding Name}" HorizontalTextAlignment="Center" Grid.ColumnSpan="3"/>
+                        <Image Source="{Binding ImageUrl1}" Grid.Row="1"/>
+                        <Label Text="vs" Grid.Column="1" Grid.Row="1"/>
+                        <Image Source="{Binding ImageUrl2}" Grid.Row="1" Grid.Column="2"/>
+                    </Grid>
                 </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
