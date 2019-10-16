@@ -43,7 +43,9 @@ namespace DotaFantasyApp.Model
         public DateTime begin_at { get; set; }
         public int id { get; set; }
         public string ImageUrl1 { get { return opponents[0].opponent.image_url; } }
+        public string Team1 { get { return opponents[0].opponent.acronym; } }
         public string ImageUrl2 { get { return opponents[1].opponent.image_url; } }
+        public string Team2 { get { return opponents[1].opponent.acronym; } }
         public League league { get; set; }
         public string match_type { get; set; }
         public string name { get; set; }
@@ -54,7 +56,7 @@ namespace DotaFantasyApp.Model
         public Tournament tournament { get; set; }
         public int tournament_id { get; set; }
         public object winner_id { get; set; }
-        public string Name { get { return league.name + " " + serie.year + " " + NameCheck.Check(name); } }
+        public string Name { get { return league.name + " " + serie.year + "-" + tournament.name; } }
     }
 
     public static class NameCheck
