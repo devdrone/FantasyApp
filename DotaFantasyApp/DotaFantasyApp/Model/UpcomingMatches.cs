@@ -5,57 +5,35 @@ namespace DotaFantasyApp.Model
 {
     public class UpcomingMatches
     {
-        public class League
-        {
-            public int id { get; set; }
-            public string image_url { get; set; }
-            public string name { get; set; }
-        }
-
-        public class Opponent2
-        {
-            public string acronym { get; set; }
-            public int id { get; set; }
-            public string image_url { get; set; }
-            public string name { get; set; }
-        }
-
-        public class Opponent
-        {
-            public Opponent2 opponent { get; set; }
-        }
-
-        public class Serie
-        {
-            public string full_name { get; set; }
-            public int id { get; set; }
-            public object prizepool { get; set; }
-            public string season { get; set; }
-            public int year { get; set; }
-        }
-
-        public class Tournament
-        {
-            public int id { get; set; }
-            public int league_id { get; set; }
-            public string name { get; set; }
-        }
         public DateTime begin_at { get; set; }
+        public bool detailed_stats { get; set; }
+        public bool draw { get; set; }
+        public DateTime end_at { get; set; }
+        public bool forfeit { get; set; }
+        public List<Game> games { get; set; }
         public int id { get; set; }
+        public League league { get; set; }
+        public int league_id { get; set; }
+        public Live live { get; set; }
+        public object live_url { get; set; }
+        public string match_type { get; set; }
+        public DateTime modified_at { get; set; }
+        public string name { get; set; }
+        public int number_of_games { get; set; }
+        public List<Opponents> opponents { get; set; }
+        public DateTime scheduled_at { get; set; }
+        public Serie serie { get; set; }
+        public int serie_id { get; set; }
+        public string slug { get; set; }
+        public string status { get; set; }
+        public Tournament tournament { get; set; }
+        public int tournament_id { get; set; }
+        public Winner winner { get; set; }
+        public int winner_id { get; set; }
         public string ImageUrl1 { get { return opponents[0].opponent.image_url; } }
         public string Team1 { get { return opponents[0].opponent.acronym; } }
         public string ImageUrl2 { get { return opponents[1].opponent.image_url; } }
         public string Team2 { get { return opponents[1].opponent.acronym; } }
-        public League league { get; set; }
-        public string match_type { get; set; }
-        public string name { get; set; }
-        public int number_of_games { get; set; }
-        public List<Opponent> opponents { get; set; }
-        public Serie serie { get; set; }
-        public string status { get; set; }
-        public Tournament tournament { get; set; }
-        public int tournament_id { get; set; }
-        public object winner_id { get; set; }
         public string Name { get { return league.name + " " + serie.year + "-" + tournament.name; } }
     }
 
@@ -68,5 +46,12 @@ namespace DotaFantasyApp.Model
             else
                 return data;
         }
+    }
+
+    public class Live
+    {
+        public DateTime opens_at { get; set; }
+        public bool supported { get; set; }
+        public string url { get; set; }
     }
 }

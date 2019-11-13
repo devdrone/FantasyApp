@@ -5,10 +5,11 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DotaFantasyApp.Views.MatchList">
 
-    <CollectionView ItemsSource="{Binding Matches}" HeightRequest="50">
+    <CollectionView ItemsSource="{Binding Matches}" HeightRequest="50" SelectedItem="{Binding SelectedMatch,Mode=TwoWay}"
+                    SelectionMode="Single" SelectionChangedCommand="{Binding MatchSelectCommand}">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame Padding="10">
+                <Frame Padding="10" HasShadow="True">
                     <Grid BackgroundColor="LightGray">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="40*"/>

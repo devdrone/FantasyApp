@@ -31,6 +31,7 @@ namespace DotaFantasyApp
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<MatchList, MatchListViewModel>();
+            containerRegistry.RegisterForNavigation<CreateTeam, CreateTeamViewModel>();
         }
     }
 }
