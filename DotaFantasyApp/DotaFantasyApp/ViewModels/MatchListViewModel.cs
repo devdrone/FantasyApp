@@ -49,7 +49,7 @@ namespace DotaFantasyApp.ViewModels
             List<KeyValuePair<string, string>> valuePairs = new List<KeyValuePair<string, string>>();
             KeyValuePair<string, string> valuePair = new KeyValuePair<string, string>("status", "finished");
             valuePairs.Add(valuePair);
-            Matches = ThinkDb<UpcomingMatches>.GetAllData("Matches", valuePairs);
+            Matches = ThinkDb<UpcomingMatches>.GetAllData("UpcomingMatches", valuePairs);
         }
     }
 }

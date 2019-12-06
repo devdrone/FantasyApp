@@ -8,7 +8,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="200*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Grid BackgroundColor="LightGray" Grid.Row="0">
@@ -31,5 +31,23 @@
             <Image Source="{Binding ImageUrl2}" Grid.Row="1" Grid.Column="4" HorizontalOptions="End" VerticalOptions="Center"/>
             <Label Text="{Binding Team2}" Grid.Row="1" Grid.Column="3" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontAttributes="Bold"/>
         </Grid>
+        <CollectionView ItemsSource="{Binding Players}" SelectionMode="Multiple" Grid.Row="1" BackgroundColor="Blue">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" HasShadow="True" HeightRequest="50" WidthRequest="50">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding image_url}" Grid.Column="0" BackgroundColor="Black" Margin="1"/>
+                            <Label Text="{Binding name}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding role}" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </Grid>
 </ContentPage>

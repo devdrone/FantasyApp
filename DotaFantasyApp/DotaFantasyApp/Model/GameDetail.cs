@@ -16,7 +16,7 @@ namespace DotaFantasyApp.Model
         public int length { get; set; }
         public UpcomingMatches match { get; set; }
         public int match_id { get; set; }
-        public List<Player> players { get; set; }
+        public List<Player2> players { get; set; }
         public int position { get; set; }
         public string status { get; set; }
         public List<Team> teams { get; set; }

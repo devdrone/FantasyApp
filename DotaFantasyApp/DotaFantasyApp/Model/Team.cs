@@ -24,6 +24,7 @@ namespace DotaFantasyApp.Model
         public string image_url { get; set; }
         public string name { get; set; }
         public string slug { get; set; }
+        public List<Player2> players { get; set; }
     }
 
     public class BarracksStatus

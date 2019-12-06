@@ -16,8 +16,15 @@ namespace DotaFantasyApp.Utils
         }
         public static List<T> GetAllData(string tableName, List<KeyValuePair<string, string>> pair)
         {
-            ts = rethink.Table(tableName).GetAll(pair[0].Value).OptArg("index", pair[0].Key).Run<T>(conn);
-            return ts.BufferedItems;
+            try
+            {
+                ts = rethink.Table(tableName).GetAll(pair[0].Value).OptArg("index", pair[0].Key).Run<T>(conn);
+                return ts.BufferedItems;
+            }
+            catch(Exception ex)
+            {
+                return new List<T>();
+            }
         }
 
         public static List<T> FilterData(string tableName, object filterQuery)
